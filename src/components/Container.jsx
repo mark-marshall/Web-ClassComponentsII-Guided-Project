@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import Friends from './Friends';
-import FriendAdder from './FriendAdder';
+import FriendEditor from './FriendEditor';
 
 
 const initialState = {
@@ -56,13 +56,13 @@ class Container extends React.Component {
 
         {
           !this.state.currentFriendId &&
-          <FriendAdder
+          <FriendEditor
             addFriend={this.addFriend}
           />
         }
         {
           this.state.currentFriendId &&
-          <FriendAdder
+          <FriendEditor
             currentFriend={currentFriend}
             updateFriend={this.updateFriend}
             setCurrentFriend={this.setCurrentFriend}
