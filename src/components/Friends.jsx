@@ -1,4 +1,6 @@
 import React from 'react';
+import Friend from './Friend';
+
 
 // Implement `Friends` component so it takes an array of friends,
 // each friend being an object like so: { name: 'Peter' },
@@ -10,7 +12,7 @@ export default function Friends(props) {
       <h3>These are my friends:</h3>
       {
         props.friends.map(friend => (
-          <div key={friend.id}>{friend.name} is {friend.age}</div>
+          <Friend key={friend.id} friend={friend} />
         ))
       }
     </div>

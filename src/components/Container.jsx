@@ -20,7 +20,7 @@ class Container extends React.Component {
     this.setState(st => ({ counter: st.counter + howMuch }));
   }
 
-  decrement(howMuch) {
+  decrement = howMuch => {
     this.setState(st => ({ counter: st.counter - howMuch }));
   }
 
