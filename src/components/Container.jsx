@@ -40,7 +40,7 @@ class Container extends React.Component {
     );
   }
 
-  setCurrentFriend = id => {
+  setCurrentFriendId = id => {
     this.setState({ currentFriendId: id });
   }
 
@@ -54,7 +54,7 @@ class Container extends React.Component {
         <Friends
           friends={this.state.friends}
           deleteFriend={this.deleteFriend}
-          setCurrentFriend={this.setCurrentFriend}
+          setCurrentFriendId={this.setCurrentFriendId}
         />
 
         {
@@ -68,7 +68,7 @@ class Container extends React.Component {
           <FriendEditor
             currentFriend={currentFriend}
             updateFriend={this.updateFriend}
-            setCurrentFriend={this.setCurrentFriend}
+            setCurrentFriendId={this.setCurrentFriendId}
           />
         }
       </div>

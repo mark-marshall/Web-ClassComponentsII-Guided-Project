@@ -51,7 +51,7 @@ export class FriendAdder extends React.Component {
         this.state.ageValue,
       );
       this.clearInputs();
-      this.props.setCurrentFriend(null);
+      this.props.setCurrentFriendId(null);
     }
   }
 
