@@ -8,6 +8,7 @@ export default function Friend({ friend, deleteFriend, setCurrentFriendId }) {
   return (
     <div>
       <span>{friend.name} is {friend.age}</span>
+
       <button onClick={onsetCurrentFriendId} className='small'>Edit Friend</button>
       <button onClick={onDelete} className='small danger'>Delete Friend</button>
     </div>
