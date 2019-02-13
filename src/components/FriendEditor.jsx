@@ -33,14 +33,14 @@ export class FriendAdder extends React.Component {
   }
 
   onFriendAdd = () => {
-    if (this.state.nameValue.length && this.state.ageValue.length) {
+    if (this.state.nameValue && this.state.ageValue) {
       // 1- add friend using the `addFriend` function coming in via props
       // 2- clear the inputs
     }
   }
 
   onFriendUpdate = () => {
-    if (this.state.nameValue.length && this.state.ageValue.length) {
+    if (this.state.nameValue && this.state.ageValue) {
       // 1- update friend using the `updateFriend` function coming in via props
       // 2- set the current friend id to null using function coming in via props
       // 3- clear the inputs
