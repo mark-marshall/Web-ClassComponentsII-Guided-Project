@@ -30,6 +30,12 @@ class Container extends React.Component {
     );
   }
 
+  deleteFriend = id => {
+    this.setState(
+      st => ({ friends: st.friends.filter(fr => fr.id !== id) }),
+    );
+  }
+
   render() {
     return (
       <div className='container'>
@@ -41,9 +47,12 @@ class Container extends React.Component {
 
         <Friends
           friends={this.state.friends}
+          deleteFriend={this.deleteFriend}
         />
 
-        <FriendAdder addFriend={this.addFriend} />
+        <FriendAdder
+          addFriend={this.addFriend}
+        />
       </div>
     );
   }

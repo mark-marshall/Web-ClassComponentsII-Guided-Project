@@ -12,7 +12,11 @@ export default function Friends(props) {
       <h3>These are my friends:</h3>
       {
         props.friends.map(friend => (
-          <Friend key={friend.id} friend={friend} />
+          <Friend
+            key={friend.id}
+            friend={friend}
+            deleteFriend={props.deleteFriend}
+          />
         ))
       }
     </div>
