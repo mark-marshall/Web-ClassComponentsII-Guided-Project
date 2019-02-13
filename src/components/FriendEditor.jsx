@@ -19,39 +19,31 @@ export class FriendAdder extends React.Component {
   }
 
   clearInputs = () => {
-    this.setState(initialState);
+    // implement
   }
 
   onNameChange = event => {
-    this.setState({
-      nameValue: event.target.value,
-    });
+    // implement
   }
 
   onAgeChange = event => {
     if (Number(event.target.value)) {
-      this.setState({
-        ageValue: event.target.value,
-      });
+      // implement
     }
   }
 
   onFriendAdd = () => {
     if (this.state.nameValue.length && this.state.ageValue.length) {
-      this.props.addFriend(this.state.nameValue, this.state.ageValue);
-      this.clearInputs();
+      // 1- add friend using the `addFriend` function coming in via props
+      // 2- clear the inputs
     }
   }
 
   onFriendUpdate = () => {
     if (this.state.nameValue.length && this.state.ageValue.length) {
-      this.props.updateFriend(
-        this.props.currentFriend.id,
-        this.state.nameValue,
-        this.state.ageValue,
-      );
-      this.clearInputs();
-      this.props.setCurrentFriendId(null);
+      // 1- update friend using the `updateFriend` function coming in via props
+      // 2- set the current friend id to null using function coming in via props
+      // 3- clear the inputs
     }
   }
 
