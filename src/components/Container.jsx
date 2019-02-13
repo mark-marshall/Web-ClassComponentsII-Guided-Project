@@ -8,6 +8,7 @@ const initialState = {
   friends: [
     { id: uuid(), name: 'Tom', age: '35' },
     { id: uuid(), name: 'Luke', age: '27' },
+    { id: uuid(), name: 'Josh', age: '34' },
   ],
   currentFriendId: null,
 };
