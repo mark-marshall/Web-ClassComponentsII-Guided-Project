@@ -33,9 +33,11 @@ class Container extends React.Component {
 
   deleteFriend = id => {
     this.setState(
-      st => ({ friends: st.friends.filter(fr => fr.id !== id) }),
+      st => ({
+        friends: st.friends.filter(fr => fr.id !== id),
+        currentFriendId: null,
+      }),
     );
-    this.setCurrentFriend(null);
   }
 
   setCurrentFriend = id => {
