@@ -7,7 +7,16 @@ const initialState = {
 };
 
 export class FriendAdder extends React.Component {
-  state = initialState
+  constructor(props) {
+    super(props);
+
+    this.state = props.currentFriend
+      ? {
+        nameValue: props.currentFriend.name,
+        ageValue: props.currentFriend.age,
+      }
+      : initialState;
+  }
 
   clearInputs = () => {
     this.setState(initialState);
@@ -20,7 +29,6 @@ export class FriendAdder extends React.Component {
   }
 
   onAgeChange = event => {
-    // only numers allowed! :)
     if (Number(event.target.value)) {
       this.setState({
         ageValue: event.target.value,
@@ -29,18 +37,34 @@ export class FriendAdder extends React.Component {
   }
 
   onFriendAdd = () => {
-    // we don't want to do anything unless inputs are filled in
     if (this.state.nameValue.length && this.state.ageValue.length) {
-      // the parent container provides us via props with the ability to add friend
       this.props.addFriend(this.state.nameValue, this.state.ageValue);
       this.clearInputs();
     }
   }
 
+  onFriendUpdate = () => {
+    if (this.state.nameValue.length && this.state.ageValue.length) {
+      this.props.updateFriend(
+        this.props.currentFriend.id,
+        this.state.nameValue,
+        this.state.ageValue,
+      );
+      this.clearInputs();
+      this.props.setCurrentFriend(null);
+    }
+  }
+
   render() {
+    const isEditing = this.props.currentFriend;
+
     return (
       <div className='sub-container'>
-        <h3>Add a friend!</h3>
+        {
+          isEditing
+            ? <h3>Edit Friend</h3>
+            : <h3>Add a friend!</h3>
+        }
 
         name:
         <input
@@ -56,7 +80,11 @@ export class FriendAdder extends React.Component {
           onChange={this.onAgeChange}
         />
 
-        <button onClick={this.onFriendAdd}>Add Friend!</button>
+        {
+          isEditing
+            ? <button onClick={this.onFriendUpdate}>Update Friend!</button>
+            : <button onClick={this.onFriendAdd}>Add Friend!</button>
+        }
       </div>
     );
   }

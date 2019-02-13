@@ -16,6 +16,7 @@ export default function Friends(props) {
             key={friend.id}
             friend={friend}
             deleteFriend={props.deleteFriend}
+            setCurrentFriend={props.setCurrentFriend}
           />
         ))
       }

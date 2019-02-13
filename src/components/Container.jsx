@@ -1,28 +1,19 @@
 import React from 'react';
 import uuid from 'uuid';
-import Count from './Count';
 import Friends from './Friends';
 import FriendAdder from './FriendAdder';
 
 
 const initialState = {
-  counter: 0,
   friends: [
-    { id: uuid(), name: 'Tom', age: 35 },
-    { id: uuid(), name: 'Luke', age: 27 },
+    { id: uuid(), name: 'Tom', age: '35' },
+    { id: uuid(), name: 'Luke', age: '27' },
   ],
+  currentFriendId: null,
 };
 
 class Container extends React.Component {
   state = initialState
-
-  increment = howMuch => {
-    this.setState(st => ({ counter: st.counter + howMuch }));
-  }
-
-  decrement = howMuch => {
-    this.setState(st => ({ counter: st.counter - howMuch }));
-  }
 
   addFriend = (name, age) => {
     this.setState(
@@ -30,29 +21,53 @@ class Container extends React.Component {
     );
   }
 
+  updateFriend = (id, name, age) => {
+    this.setState(
+      st => {
+        const otherFriends = st.friends.filter(fr => fr.id !== id);
+        return { friends: otherFriends.concat({ id, name, age }) };
+      },
+    );
+  }
+
   deleteFriend = id => {
     this.setState(
       st => ({ friends: st.friends.filter(fr => fr.id !== id) }),
     );
+    this.setCurrentFriend(null);
+  }
+
+  setCurrentFriend = id => {
+    this.setState({ currentFriendId: id });
   }
 
   render() {
+    const currentFriend = this.state.friends.find(
+      fr => fr.id === this.state.currentFriendId,
+    );
+
     return (
       <div className='container'>
-        <Count
-          count={this.state.counter}
-          increment={this.increment}
-          decrement={this.decrement}
-        />
-
         <Friends
           friends={this.state.friends}
           deleteFriend={this.deleteFriend}
+          setCurrentFriend={this.setCurrentFriend}
         />
 
-        <FriendAdder
-          addFriend={this.addFriend}
-        />
+        {
+          !this.state.currentFriendId &&
+          <FriendAdder
+            addFriend={this.addFriend}
+          />
+        }
+        {
+          this.state.currentFriendId &&
+          <FriendAdder
+            currentFriend={currentFriend}
+            updateFriend={this.updateFriend}
+            setCurrentFriend={this.setCurrentFriend}
+          />
+        }
       </div>
     );
   }
