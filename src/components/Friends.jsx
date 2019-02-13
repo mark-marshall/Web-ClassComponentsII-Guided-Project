@@ -7,6 +7,9 @@ export default function Friends(props) {
     <div className="sub-container">
       <h3>These are my friends:</h3>
       {
+        !props.friends.length && <h5>No friends. Sad!</h5>
+      }
+      {
         props.friends.map(friend => (
           <Friend
             key={friend.id}
