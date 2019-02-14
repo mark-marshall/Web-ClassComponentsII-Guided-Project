@@ -19,19 +19,16 @@ export class FriendAdder extends React.Component {
   }
 
   clearInputs = () => {
-    // implement
     this.setState(initialState);
   }
 
   onNameChange = event => {
-    // me likez!!!!!!!!
     this.setState({
       nameValue: event.target.value,
     });
   }
 
   onAgeChange = event => {
-    // me likses
     if (Number(event.target.value)) {
       this.setState({
         ageValue: event.target.value,
@@ -41,24 +38,22 @@ export class FriendAdder extends React.Component {
 
   onFriendAdd = () => {
     if (this.state.nameValue && this.state.ageValue) {
-      // 1- add friend using the `addFriend` function coming in via props
       this.props.addFriend(this.state.nameValue, this.state.ageValue);
-      // 2- clear the inputs
       this.clearInputs();
     }
   }
 
   onFriendUpdate = () => {
     if (this.state.nameValue && this.state.ageValue) {
-      // alter the state of the app!!!!
+      // alter the state of the app!!
       this.props.updateFriend(
         this.props.currentFriend.id,
         this.state.nameValue,
         this.state.ageValue,
       );
-      // alter the state of the app!!!
+      // alter the state of the app!!
       this.props.setCurrentFriendId(null);
-      // alter the state of the current component
+      // alter the state of the current component!!
       this.clearInputs();
     }
   }

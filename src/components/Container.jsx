@@ -25,14 +25,13 @@ class Container extends React.Component {
 
   // updateFriend = (id, name, age) => {
   //   this.setState(existingState => {
-  //     const arrayWithoutTheFriendToBeUpdated = existingState.friends.filter(fr => fr.id !== id);
-  //     const arrayWithTheUpdatedFriend = arrayWithoutTheFriendToBeUpdated.concat({ id, name, age });
+  //     const newFriendsWithoutTheOne = existingState.friends.filter(fr => fr.id !== id);
+  //     const arrayWithTheUpdatedFriend = newFriendsWithoutTheOne.concat({ id, name, age });
   //     return { friends: arrayWithTheUpdatedFriend };
   //   });
   // }
 
   updateFriend = (id, name, age) => {
-    // update an existing friend (the `id` tells us which friend to update)
     this.setState(lastState => ({
       friends: lastState.friends.map(friend => {
         if (friend.id === id) {
@@ -50,9 +49,10 @@ class Container extends React.Component {
   }
 
   setCurrentFriendId = id => {
-    this.setState({
-      currentFriendId: id,
-    });
+    this.setState(
+      { currentFriendId: null },
+      () => this.setState({ currentFriendId: id }),
+    );
   }
 
   render() {
