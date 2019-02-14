@@ -6,7 +6,7 @@ const initialState = {
   ageValue: '',
 };
 
-export class FriendAdder extends React.Component {
+export class FriendEditor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -95,4 +95,4 @@ export class FriendAdder extends React.Component {
   }
 }
 
-export default FriendAdder;
+export default FriendEditor;
