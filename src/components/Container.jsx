@@ -17,7 +17,6 @@ class Container extends React.Component {
   state = initialState
 
   addFriend = (name, age) => {
-    // add a new friend object to `state.friends`
     this.setState(lastState => ({
       friends: lastState.friends.concat({ id: uuid(), name, age }),
     }));
