@@ -17,38 +17,27 @@ class Container extends React.Component {
   state = initialState
 
   addFriend = (name, age) => {
-    this.setState(lastState => ({
-      friends: lastState.friends.concat({ id: uuid(), name, age }),
-    }));
+    // add a new friend object to `state.friends` using setState
   }
 
   updateFriend = (id, name, age) => {
-    this.setState(lastState => ({
-      friends: lastState.friends.map(friend => {
-        if (friend.id === id) {
-          return { id, name, age };
-        }
-        return friend;
-      }),
-    }));
+    // update an existing friend (the `id` tells us which friend to update)
+    // using setState
   }
 
   deleteFriend = id => {
-    this.setState(prevState => ({
-      friends: prevState.friends.filter(fr => fr.id !== id),
-    }));
+    // 1- delete an existing friend (the `id` tells us which) using setState
+    // 2- also set currentFriendId to null
   }
 
   setCurrentFriendId = id => {
-    this.setState(
-      { currentFriendId: null },
-      () => this.setState({ currentFriendId: id }),
-    );
+    // set state.currentFriendId to be `id`
   }
 
   render() {
     const currentFriend = this.state.friends.find(
-      friend => this.state.currentFriendId === friend.id,
+      Function.prototype,
+      // find the friend object that has an id of `state.currentFriendId`
     );
 
     return (
