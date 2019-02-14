@@ -50,9 +50,16 @@ export class FriendAdder extends React.Component {
 
   onFriendUpdate = () => {
     if (this.state.nameValue && this.state.ageValue) {
-      // 1- update friend using the `updateFriend` function coming in via props
-      // 2- set the current friend id to null using function coming in via props
-      // 3- clear the inputs
+      // alter the state of the app!!!!
+      this.props.updateFriend(
+        this.props.currentFriend.id,
+        this.state.nameValue,
+        this.state.ageValue,
+      );
+      // alter the state of the app!!!
+      this.props.setCurrentFriendId(null);
+      // alter the state of the current component
+      this.clearInputs();
     }
   }
 
