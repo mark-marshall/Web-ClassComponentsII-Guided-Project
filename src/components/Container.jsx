@@ -31,17 +31,17 @@ class Container extends React.Component {
     });
   }
 
-  updateFriend = (id, name, age) => {
-    // update an existing friend (the `id` tells us which friend to update)
-    this.setState(lastState => ({
-      friends: lastState.friends.map(friend => {
-        if (friend.id === id) {
-          return { id, name, age };
-        }
-        return friend;
-      }),
-    }));
-  }
+  // updateFriend = (id, name, age) => {
+  //   // update an existing friend (the `id` tells us which friend to update)
+  //   this.setState(lastState => ({
+  //     friends: lastState.friends.map(friend => {
+  //       if (friend.id === id) {
+  //         return { id, name, age };
+  //       }
+  //       return friend;
+  //     }),
+  //   }));
+  // }
 
   deleteFriend = id => {
     this.setState(prevState => ({
@@ -57,8 +57,7 @@ class Container extends React.Component {
 
   render() {
     const currentFriend = this.state.friends.find(
-      
-      // find the friend object that has an id of `state.currentFriendId`
+      friend => this.state.currentFriendId === friend.id,
     );
 
     return (
