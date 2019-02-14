@@ -1,4 +1,5 @@
 import React from 'react';
+import { ENOTCONN } from 'constants';
 
 
 const initialState = {
@@ -20,15 +21,22 @@ export class FriendAdder extends React.Component {
 
   clearInputs = () => {
     // implement
+    this.setState(initialState);
   }
 
   onNameChange = event => {
-    // implement
+    // me likez!!!!!!!!
+    this.setState({
+      nameValue: event.target.value,
+    });
   }
 
   onAgeChange = event => {
+    // me likses
     if (Number(event.target.value)) {
-      // implement
+      this.setState({
+        ageValue: event.target.value,
+      });
     }
   }
 
