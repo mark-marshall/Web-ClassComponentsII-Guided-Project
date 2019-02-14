@@ -6,9 +6,7 @@ export default function Friends({ friends, ...rest }) {
   return (
     <div className="sub-container">
       <h3>These are my friends:</h3>
-      {
-        !friends.length && <h5>No friends. Sad!</h5>
-      }
+      {/* Make it so we get the `No friends!` h5 if there are no friends */}
       {
         friends.map(friend => (
           <Friend
