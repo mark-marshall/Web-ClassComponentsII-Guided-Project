@@ -23,14 +23,6 @@ class Container extends React.Component {
     }));
   }
 
-  // updateFriend = (id, name, age) => {
-  //   this.setState(existingState => {
-  //     const newFriendsWithoutTheOne = existingState.friends.filter(fr => fr.id !== id);
-  //     const arrayWithTheUpdatedFriend = newFriendsWithoutTheOne.concat({ id, name, age });
-  //     return { friends: arrayWithTheUpdatedFriend };
-  //   });
-  // }
-
   updateFriend = (id, name, age) => {
     this.setState(lastState => ({
       friends: lastState.friends.map(friend => {
