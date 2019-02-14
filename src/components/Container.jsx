@@ -23,25 +23,25 @@ class Container extends React.Component {
     }));
   }
 
-  updateFriend = (id, name, age) => {
-    this.setState(existingState => {
-      const arrayWithoutTheFriendToBeUpdated = existingState.friends.filter(fr => fr.id !== id);
-      const arrayWithTheUpdatedFriend = arrayWithoutTheFriendToBeUpdated.concat({ id, name, age });
-      return { friends: arrayWithTheUpdatedFriend };
-    });
-  }
-
   // updateFriend = (id, name, age) => {
-  //   // update an existing friend (the `id` tells us which friend to update)
-  //   this.setState(lastState => ({
-  //     friends: lastState.friends.map(friend => {
-  //       if (friend.id === id) {
-  //         return { id, name, age };
-  //       }
-  //       return friend;
-  //     }),
-  //   }));
+  //   this.setState(existingState => {
+  //     const arrayWithoutTheFriendToBeUpdated = existingState.friends.filter(fr => fr.id !== id);
+  //     const arrayWithTheUpdatedFriend = arrayWithoutTheFriendToBeUpdated.concat({ id, name, age });
+  //     return { friends: arrayWithTheUpdatedFriend };
+  //   });
   // }
+
+  updateFriend = (id, name, age) => {
+    // update an existing friend (the `id` tells us which friend to update)
+    this.setState(lastState => ({
+      friends: lastState.friends.map(friend => {
+        if (friend.id === id) {
+          return { id, name, age };
+        }
+        return friend;
+      }),
+    }));
+  }
 
   deleteFriend = id => {
     this.setState(prevState => ({
