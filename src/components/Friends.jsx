@@ -2,7 +2,7 @@ import React from 'react';
 import Friend from './Friend';
 
 
-export default function Friends({ friends, ...rest }) {
+export default function Friends({ friends, deleteFriend, setCurrentFriendId }) {
   return (
     <div className="sub-container">
       <h3>These are my friends:</h3>
@@ -12,7 +12,8 @@ export default function Friends({ friends, ...rest }) {
           <Friend
             key={friend.id}
             friend={friend}
-            {...rest}
+            deleteFriend={deleteFriend}
+            setCurrentFriendId={setCurrentFriendId}
           />
         ))
       }
