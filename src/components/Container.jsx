@@ -57,7 +57,7 @@ class Container extends React.Component {
 
   render() {
     const currentFriend = this.state.friends.find(
-      Function.prototype,
+      
       // find the friend object that has an id of `state.currentFriendId`
     );
 
