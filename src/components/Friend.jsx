@@ -9,8 +9,8 @@ export default function Friend({ friend, deleteFriend, setCurrentFriendId }) {
     <div>
       <span>{friend.name} is {friend.age}</span>
 
-      <button onClick={setCurrentFriendId} className='small'>Edit Friend</button>
-      <button onClick={deleteFriend} className='small danger'>Delete Friend</button>
+      <button onClick={() => setCurrentFriendId(friend.id)} className='small'>Edit Friend</button>
+      <button onClick={() => deleteFriend(friend.id)} className='small danger'>Delete Friend</button>
     </div>
   );
 }
